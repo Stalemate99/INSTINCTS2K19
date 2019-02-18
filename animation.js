@@ -41,12 +41,12 @@ $(window).scroll(function() {
 (function(){
     var a = document.querySelector("#inp");
     var sicon = document.querySelector(".plusdisplay");
-    var cb = document.querySelector(".closeboxclose");
+    var cb = document.querySelector(".closeboxhide");
     var ul = document.querySelector("#query");
     sicon.addEventListener("click",function(){
         a.classList.remove("tasktxtclose");
         a.classList.add("tasktxtdisplay");
-        cb.classList.remove("closeboxclose");
+        cb.classList.remove("closeboxhide");
         cb.classList.add("closeboxdisplay");
         sicon.classList.remove("plusdisplay");
         sicon.classList.add("plusclose");
@@ -58,7 +58,7 @@ $(window).scroll(function() {
         sicon.classList.remove("plusclose");
         sicon.classList.add("plusdisplay");
         cb.classList.remove("closeboxdisplay");
-        cb.classList.add("closeboxclose");
+        cb.classList.add("closeboxhide");
         a.value="";
         ul.innerHTML="";
     
