@@ -1,4 +1,3 @@
-
 let eventModule = function () {
     let flag = 1;
     let parent, template;
@@ -53,19 +52,19 @@ let eventModule = function () {
                 // when window width is <= 320px
                 320: {
                     slidesPerView: 1,
-                    initialSlide:0
+                    initialSlide: 0
 
                 },
                 // when window width is <= 480px
                 480: {
                     slidesPerView: 1,
-                    initialSlide:0
+                    initialSlide: 0
 
                 },
                 // when window width is <= 640px
                 768: {
                     slidesPerView: 2,
-                    initialSlide:0
+                    initialSlide: 0
                 }
             },
             coverflowEffect: {
@@ -118,27 +117,20 @@ let eventModule = function () {
             eventsbarlist.push(d.events[i].title);
         }
         mid = Math.floor(eventsbarlist.length / 2);
-        
+
         renderTitle(eventsbarlist);
-        parentel.addEventListener("click", controller);
-        swiperinit(parent);
-    }
-
-
-    function controller(e) {
-            // sel("#mtitle").innerHTML="";
+        parentel.addEventListener("click", function (e) {
             sel("#maincontent").innerHTML = "";
-          
+
             var previous2 = e.target.parentElement.children[1].innerHTML;
             previous = previous2.replace(/\s+/g, "");
             // let data = JSON.parse(localStorage.getItem(club));
-            fetch("assets/json/" + club + ".json").then(function (response) {
-                return response.json();
-            }).then(function (data) {
             sel("#mtitle").innerHTML = previous2;
-            rendercontent(data, previous2);
+            rendercontent(d, previous2);
             $("#mastersof").trigger('click');
         });
+        swiperinit(parent);
+        // sel("#mtitle").innerHTML="";
     }
 
     function rendercontent(d, pre) {
@@ -190,13 +182,13 @@ let eventModule = function () {
         //     gatherEvents(e);
 
         // } else {
-            fetch("assets/json/" + clubname + ".json").then(function (response) {
-                return response.json();
-            }).then(function (e) {
-                // localStorage.setItem(e.title, JSON.stringify(e));
-            
-                gatherEvents(e);
-            });
+        fetch("assets/json/" + clubname + ".json").then(function (response) {
+            return response.json();
+        }).then(function (e) {
+            // localStorage.setItem(e.title, JSON.stringify(e));
+
+            gatherEvents(e);
+        });
         // }
 
     }
